@@ -1,30 +1,29 @@
-import { useState } from 'react';
-import { AquaTic_backend } from 'declarations/AquaTic_backend';
+// src/App.jsx
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Connect2ICProvider } from '@connect2ic/react';
+import { createClient } from '@connect2ic/core';
+import { defaultProviders } from '@connect2ic/core/providers';
+import { UserProvider } from './UserContext';
+import AppRoutes from './AppRoutes';
+import './index.scss';
+
+const client = createClient({
+  providers: defaultProviders,
+  globalProviderConfig: {
+    dev: import.meta.env.DEV,
+  },
+});
 
 function App() {
-  const [greeting, setGreeting] = useState('');
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    const name = event.target.elements.name.value;
-    AquaTic_backend.greet(name).then((greeting) => {
-      setGreeting(greeting);
-    });
-    return false;
-  }
-
   return (
-    <main>
-      <img src="/logo2.svg" alt="DFINITY logo" />
-      <br />
-      <br />
-      <form action="#" onSubmit={handleSubmit}>
-        <label htmlFor="name">Enter your name: &nbsp;</label>
-        <input id="name" alt="Name" type="text" />
-        <button type="submit">Click Me!</button>
-      </form>
-      <section id="greeting">{greeting}</section>
-    </main>
+    <UserProvider>
+      <Connect2ICProvider client={client}>
+        <Router>
+          <AppRoutes />
+        </Router>
+      </Connect2ICProvider>
+    </UserProvider>
   );
 }
 
