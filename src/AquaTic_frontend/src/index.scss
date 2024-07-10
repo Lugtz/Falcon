@@ -1,7 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #e0f2f1; // Azul claro y suave como fondo
-  color: #004d40; // Color de texto acorde con el logo
+  background-color: #e0f2f1; // Fondo más suave
 }
 
 .App {
@@ -10,7 +9,6 @@ body {
 
 h1 {
   margin-bottom: 30px;
-  color: #004d40; // Color de texto acorde con el logo
 }
 
 .card {
@@ -19,7 +17,6 @@ h1 {
 
 button {
   margin-top: 10px;
-  font-size: 1rem;
 }
 
 .landing-page {
@@ -114,4 +111,67 @@ button {
 
 .table-responsive {
   margin-top: 20px;
+}
+
+.table-container {
+  width: 60%;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.custom-table {
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  overflow: hidden;
+  border-collapse: separate; // Asegura que los bordes no se mezclen
+  border-spacing: 0; // Remueve el espacio entre las celdas
+  border: 1px solid #004d40; // Borde exterior de la tabla
+}
+
+.custom-table th {
+  background-color: #00796b; // Fondo de los encabezados
+  color: #ffffff; // Color del texto de los encabezados
+  text-align: center;
+  padding: 12px 15px;
+  border-bottom: 2px solid #004d40; // Borde inferior de los encabezados
+  border-right: 1px solid #004d40; // Bordes entre los encabezados
+  &:first-child {
+    border-top-left-radius: 10px; // Bordes redondeados para la primera celda
+  }
+  &:last-child {
+    border-top-right-radius: 10px; // Bordes redondeados para la última celda
+  }
+}
+
+.custom-table td {
+  text-align: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e0e0e0; // Añadir borde inferior a las celdas
+  border-right: 1px solid #e0e0e0; // Añadir borde derecho a las celdas
+  background-color: #f0f4f8; // Color de fondo para celdas
+}
+
+.custom-table tbody tr:last-of-type td {
+  &:first-child {
+    border-bottom-left-radius: 10px; // Bordes redondeados para la primera celda de la última fila
+  }
+  &:last-child {
+    border-bottom-right-radius: 10px; // Bordes redondeados para la última celda de la última fila
+  }
+}
+
+.custom-table tbody tr:nth-of-type(odd) {
+  background-color: #e8f5e9; // Color de fondo para filas impares
+}
+
+.custom-table tbody tr:nth-of-type(even) {
+  background-color: #f1f8e9; // Color de fondo para filas pares
+}
+
+.custom-table tbody tr:hover {
+  background-color: #c8e6c9; // Color de fondo al pasar el ratón
 }
