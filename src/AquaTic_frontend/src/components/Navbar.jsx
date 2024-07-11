@@ -1,25 +1,23 @@
 // src/components/Navbar.jsx
 import React from 'react';
-import { useConnect } from '@connect2ic/react';
-import { useNavigate } from 'react-router-dom';
 import logo from '/NovaPal.png';
+import { useConnect } from '@connect2ic/react';
 
 const Navbar = () => {
   const { disconnect } = useConnect();
-  const navigate = useNavigate();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
-        <div className="navbar-brand" onClick={() => navigate('/home')} style={{ cursor: 'pointer' }}>
-          <img src={logo} alt="NovaPal" width="40" height="40" className="d-inline-block align-text-top" />
+        <a className="navbar-brand" href="#">
+          <img src={logo} alt="NovaPal" width="50" height="50" className="d-inline-block align-text-top" />
           NovaPal
-        </div>
+        </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto">
+        <div className="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul className="navbar-nav">
             <li className="nav-item">
               <button className="btn btn-danger" onClick={disconnect}>
                 Cerrar Sesión
