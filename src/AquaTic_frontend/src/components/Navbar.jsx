@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import React from 'react';
-import logo from '../../public/NovaPal.png';
+import logo from '/NovaPal.png';
 import { useConnect } from '@connect2ic/react';
 
 const Navbar = () => {
