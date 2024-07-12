@@ -1,6 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const ConsultarSensorData = ({ sensorData }) => {
+  useEffect(() => {
+    if (sensorData) {
+      const tableContainer = document.querySelector('.table-container');
+      if (tableContainer) {
+        tableContainer.classList.add('show');
+      }
+    }
+  }, [sensorData]);
+
   return (
     <div className="d-flex justify-content-center">
       <div className="table-container">
