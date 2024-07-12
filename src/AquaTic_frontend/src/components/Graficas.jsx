@@ -1,4 +1,3 @@
-// src/components/Graficas.jsx
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { AquaTic_backend } from 'declarations/AquaTic_backend';
@@ -54,19 +53,19 @@ const Graficas = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <h1>Gráficas</h1>
-      <div className="row">
-        <div className="col-md-6">
-          <h2>Temperatura</h2>
+    <div className="main-content">
+      <h1 className="text-center">Gráficas</h1>
+      <div className="charts-grid">
+        <div className="chart-item">
+          <h2 className="text-center">Temperatura</h2>
           <Line data={processData(sensorData, 'oxigeno', 'Temperatura')} />
         </div>
-        <div className="col-md-6">
-          <h2>PH</h2>
+        <div className="chart-item">
+          <h2 className="text-center">PH</h2>
           <Line data={processData(sensorData, 'ph')} />
         </div>
-        <div className="col-md-6">
-          <h2>TDS</h2>
+        <div className="chart-item">
+          <h2 className="text-center">TDS</h2>
           <Line data={processData(sensorData, 'tds')} />
         </div>
       </div>

@@ -25,9 +25,12 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
   text-align: center;
   background-color: #e0f2f1;
+}
+
+.landing-page {
+  height: 100vh;
 }
 
 .landing-page .logo, .main-content .logo {
@@ -112,12 +115,12 @@ button {
 
 .table-responsive {
   margin-top: 20px;
-  max-height: 400px; /* Limit the table height */
-  overflow-y: auto; /* Enable vertical scrolling */
+  max-height: 400px;
+  overflow-y: auto;
 }
 
 .table-container {
-  width: 90%; /* Make the table container wider */
+  width: 90%;
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -179,15 +182,16 @@ button {
   background-color: #c8e6c9;
 }
 
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  width: 100%;
+}
 
-.graficas-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-
-  .chart-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px 0;
-  }
+.chart-item {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
