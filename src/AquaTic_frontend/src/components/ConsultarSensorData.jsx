@@ -1,10 +1,9 @@
-// src/components/ConsultarSensorData.jsx
 import React from 'react';
 
 const ConsultarSensorData = ({ sensorData }) => {
   return (
     <div className="d-flex justify-content-center">
-      <div className="table-container w-75"> {/* Cambia la clase aquí */}
+      <div className="table-container w-75">
         {sensorData && (
           <div className="table-responsive">
             <table className="table table-striped table-hover table-sm custom-table">
@@ -13,7 +12,7 @@ const ConsultarSensorData = ({ sensorData }) => {
                   <th>ID del Sensor</th>
                   <th>TDS</th>
                   <th>PH</th>
-                  <th>Oxígeno</th>
+                  <th>Temperatura</th> {/* Mostrar como Temperatura */}
                   <th>Fecha</th>
                 </tr>
               </thead>
@@ -23,7 +22,7 @@ const ConsultarSensorData = ({ sensorData }) => {
                     <td>{data.id}</td>
                     <td>{data.tds}</td>
                     <td>{data.ph}</td>
-                    <td>{data.oxigeno}</td>
+                    <td>{data.oxigeno}</td> {/* Consultar como Oxígeno */}
                     <td>{data.created_at}</td>
                   </tr>
                 ))}
