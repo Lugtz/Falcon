@@ -6,6 +6,7 @@ import { useUser } from './UserContext';
 import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import Graficas from './components/Graficas';
 
 function AppRoutes() {
   const { isConnected, principal } = useConnect();
@@ -15,13 +16,15 @@ function AppRoutes() {
 
   useEffect(() => {
     if (isConnected && principal) {
-      setPrincipal(principal);
-      navigate('/home');
+      setPrincipal(principal.toString());
+      if (location.pathname === '/') {
+        navigate('/home');
+      }
     }
     if (!isConnected && location.pathname !== '/') {
       navigate('/');
     }
-  }, [isConnected, principal, setPrincipal, navigate, location]);
+  }, [isConnected, principal, setPrincipal, navigate, location.pathname]);
 
   return (
     <>
@@ -30,6 +33,7 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<LandingPage onEnter={() => navigate('/home')} />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/graficas" element={<Graficas />} />
         </Routes>
       </main>
     </>

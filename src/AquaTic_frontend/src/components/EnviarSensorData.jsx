@@ -1,11 +1,10 @@
-// src/components/EnviarSensorData.jsx
 import React, { useState } from 'react';
 import { AquaTic_backend } from 'declarations/AquaTic_backend';
 
 const EnviarSensorData = () => {
   const [tds, setTds] = useState('');
   const [ph, setPh] = useState('');
-  const [oxigeno, setOxigeno] = useState('');
+  const [temperatura, setTemperatura] = useState(''); // Mostrar y solicitar como Temperatura
   const [response, setResponse] = useState(null);
   const [error, setError] = useState(null);
 
@@ -13,7 +12,7 @@ const EnviarSensorData = () => {
     const { name, value } = e.target;
     if (name === 'tds') setTds(value);
     if (name === 'ph') setPh(value);
-    if (name === 'oxigeno') setOxigeno(value);
+    if (name === 'temperatura') setTemperatura(value); // Mostrar y solicitar como Temperatura
   };
 
   const sendData = async (e) => {
@@ -21,7 +20,7 @@ const EnviarSensorData = () => {
     const sensorData = {
       TDS: parseFloat(tds),
       PH: parseFloat(ph),
-      Oxigeno: parseFloat(oxigeno), // Asegúrate de que la clave sea exactamente "Oxigeno"
+      Oxigeno: parseFloat(temperatura), // Enviar como Oxígeno
     };
 
     try {
@@ -63,15 +62,15 @@ const EnviarSensorData = () => {
           />
         </div>
         <div className="form-group">
-          <label htmlFor="oxigeno">Oxígeno</label>
+          <label htmlFor="temperatura">Temperatura</label> {/* Mostrar como Temperatura */}
           <input
             type="number"
             className="form-control"
-            id="oxigeno"
-            name="oxigeno"
-            value={oxigeno}
+            id="temperatura"
+            name="temperatura"
+            value={temperatura}
             onChange={handleInputChange}
-            placeholder="Oxígeno"
+            placeholder="Temperatura"
             required
           />
         </div>

@@ -1,14 +1,16 @@
+// index.scss
 body {
-  font-family: Arial, sans-serif;
-  background-color: #e0f2f1; // Fondo más suave
+  font-family: 'Merriweather', serif;
+  background-color: #e0f2f1;
 }
 
 .App {
   padding: 20px;
 }
 
-h1 {
-  margin-bottom: 30px;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
 }
 
 .card {
@@ -19,52 +21,52 @@ button {
   margin-top: 10px;
 }
 
-.landing-page {
+.landing-page, .main-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100vh;
   text-align: center;
-  background-color: #e0f2f1; // Fondo de la página de aterrizaje
+  background-color: #e0f2f1;
 }
 
-.landing-page .logo {
+.landing-page .logo, .main-content .logo {
   width: 150px;
   height: auto;
   margin-bottom: 20px;
 }
 
-.landing-page h1 {
+.landing-page h1, .main-content h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-  color: #004d40; // Color de texto acorde con el logo
+  color: #004d40;
 }
 
-.landing-page p {
+.landing-page p, .main-content p {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #004d40; // Color de texto acorde con el logo
+  color: #004d40;
 }
 
-.landing-page .btn {
+.landing-page .btn, .main-content .btn {
   font-size: 1.25rem;
   padding: 10px 20px;
 }
 
-.landing-page .btn-primary {
-  background-color: #00796b; // Color primario para los botones
+.landing-page .btn-primary, .main-content .btn-primary {
+  background-color: #00796b;
   border: none;
 }
 
-.landing-page .btn-success {
+.landing-page .btn-success, .main-content .btn-success {
   margin-top: 20px;
-  background-color: #004d40; // Color para el botón de entrar
+  background-color: #004d40;
   border: none;
 }
 
 .navbar {
-  background-color: #004d40; // Fondo de la barra de navegación
+  background-color: #004d40;
 }
 
 .navbar .navbar-brand .logo {
@@ -73,7 +75,7 @@ button {
 }
 
 .navbar .btn {
-  color: #ffffff; // Color del texto del botón de cerrar sesión
+  color: #ffffff;
 }
 
 .logout-button {
@@ -89,8 +91,8 @@ button {
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
-  background-color: #004d40; // Color del botón de cerrar sesión
-  color: #ffffff; // Color del icono del botón de cerrar sesión
+  background-color: #004d40;
+  color: #ffffff;
   border: none;
 }
 
@@ -104,22 +106,30 @@ button {
 }
 
 .main {
-  height: calc(100vh - 56px); // Ajusta según la altura de tu barra de navegación
+  height: calc(100vh - 56px);
   overflow-y: auto;
   padding: 20px;
 }
 
 .table-responsive {
   margin-top: 20px;
+  max-height: 400px; /* Limit the table height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .table-container {
-  width: 60%;
+  width: 90%; /* Make the table container wider */
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  opacity: 0; /* Inicialmente oculto */
+  transition: opacity 1s ease-in-out; /* Animación de desvanecimiento */
+}
+
+.table-container.show {
+  opacity: 1; /* Mostrar cuando se añada la clase 'show' */
 }
 
 .custom-table {
@@ -127,51 +137,72 @@ button {
   background-color: #ffffff;
   border-radius: 10px;
   overflow: hidden;
-  border-collapse: separate; // Asegura que los bordes no se mezclen
-  border-spacing: 0; // Remueve el espacio entre las celdas
-  border: 1px solid #004d40; // Borde exterior de la tabla
+  border-collapse: separate;
+  border-spacing: 0;
+  border: 1px solid #004d40;
 }
 
 .custom-table th {
-  background-color: #00796b; // Fondo de los encabezados
-  color: #ffffff; // Color del texto de los encabezados
+  background-color: #00796b;
+  color: #ffffff;
   text-align: center;
   padding: 12px 15px;
-  border-bottom: 2px solid #004d40; // Borde inferior de los encabezados
-  border-right: 1px solid #004d40; // Bordes entre los encabezados
+  border-bottom: 2px solid #004d40;
+  border-right: 1px solid #004d40;
   &:first-child {
-    border-top-left-radius: 10px; // Bordes redondeados para la primera celda
+    border-top-left-radius: 10px;
   }
   &:last-child {
-    border-top-right-radius: 10px; // Bordes redondeados para la última celda
+    border-top-right-radius: 10px;
   }
 }
 
 .custom-table td {
   text-align: center;
   padding: 12px 15px;
-  border-bottom: 1px solid #e0e0e0; // Añadir borde inferior a las celdas
-  border-right: 1px solid #e0e0e0; // Añadir borde derecho a las celdas
-  background-color: #f0f4f8; // Color de fondo para celdas
+  border-bottom: 1px solid #e0e0e0;
+  border-right: 1px solid #e0e0e0;
+  background-color: #f0f4f8;
 }
 
 .custom-table tbody tr:last-of-type td {
   &:first-child {
-    border-bottom-left-radius: 10px; // Bordes redondeados para la primera celda de la última fila
+    border-bottom-left-radius: 10px;
   }
   &:last-child {
-    border-bottom-right-radius: 10px; // Bordes redondeados para la última celda de la última fila
+    border-bottom-right-radius: 10px;
   }
 }
 
 .custom-table tbody tr:nth-of-type(odd) {
-  background-color: #e8f5e9; // Color de fondo para filas impares
+  background-color: #e8f5e9;
 }
 
 .custom-table tbody tr:nth-of-type(even) {
-  background-color: #f1f8e9; // Color de fondo para filas pares
+  background-color: #f1f8e9;
 }
 
 .custom-table tbody tr:hover {
-  background-color: #c8e6c9; // Color de fondo al pasar el ratón
+  background-color: #c8e6c9;
+}
+
+.graficas-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  .chart-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px 0;
+  }
+}
+
+.spinner-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  color: #00796b;
 }

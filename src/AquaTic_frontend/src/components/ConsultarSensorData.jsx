@@ -1,30 +1,18 @@
-// src/components/ConsultarSensorData.jsx
-import React, { useState } from 'react';
-import { AquaTic_backend } from 'declarations/AquaTic_backend';
+import React, { useEffect } from 'react';
 
-const ConsultarSensorData = () => {
-  const [sensorData, setSensorData] = useState(null);
-  const [error, setError] = useState(null);
-
-  const fetchData = async () => {
-    try {
-      const response = await AquaTic_backend.fetchSensorData();
-      const parsedResponse = JSON.parse(response); // Parsear la cadena JSON a un objeto
-      setSensorData(parsedResponse);
-    } catch (err) {
-      setError(err.message);
+const ConsultarSensorData = ({ sensorData }) => {
+  useEffect(() => {
+    if (sensorData) {
+      const tableContainer = document.querySelector('.table-container');
+      if (tableContainer) {
+        tableContainer.classList.add('show');
+      }
     }
-  };
+  }, [sensorData]);
 
   return (
     <div className="d-flex justify-content-center">
-      <div className="table-container w-75"> {/* Cambia la clase aquí */}
-        <h2 className="text-center">Obtener Datos del Sensor</h2>
-        <div className="text-center">
-          <button className="btn btn-primary mb-3" onClick={fetchData}>
-            Obtener Datos
-          </button>
-        </div>
+      <div className="table-container">
         {sensorData && (
           <div className="table-responsive">
             <table className="table table-striped table-hover table-sm custom-table">
@@ -33,7 +21,7 @@ const ConsultarSensorData = () => {
                   <th>ID del Sensor</th>
                   <th>TDS</th>
                   <th>PH</th>
-                  <th>Oxígeno</th>
+                  <th>Temperatura</th> {/* Mostrar como Temperatura */}
                   <th>Fecha</th>
                 </tr>
               </thead>
@@ -43,7 +31,7 @@ const ConsultarSensorData = () => {
                     <td>{data.id}</td>
                     <td>{data.tds}</td>
                     <td>{data.ph}</td>
-                    <td>{data.oxigeno}</td>
+                    <td>{data.oxigeno}</td> {/* Consultar como Oxígeno */}
                     <td>{data.created_at}</td>
                   </tr>
                 ))}
@@ -51,7 +39,6 @@ const ConsultarSensorData = () => {
             </table>
           </div>
         )}
-        {error && <p className="text-danger mt-3">{error}</p>}
       </div>
     </div>
   );

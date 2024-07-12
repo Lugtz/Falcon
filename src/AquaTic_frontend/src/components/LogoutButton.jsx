@@ -6,17 +6,13 @@ import '@connect2ic/core/style.css';
 const LogoutButton = () => {
   const { disconnect } = useConnect();
 
-  const handleLogout = () => {
-    disconnect();
-  };
-
   return (
     <button
       className="btn btn-danger logout-button"
-      onClick={handleLogout}
+      onClick={disconnect}
       aria-label="Logout"
     >
-      Logout
+      Cerrar Sesión
     </button>
   );
 };
