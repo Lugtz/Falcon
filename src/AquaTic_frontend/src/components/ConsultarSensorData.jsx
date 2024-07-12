@@ -3,7 +3,7 @@ import React from 'react';
 const ConsultarSensorData = ({ sensorData }) => {
   return (
     <div className="d-flex justify-content-center">
-      <div className="table-container w-75">
+      <div className="table-container">
         {sensorData && (
           <div className="table-responsive">
             <table className="table table-striped table-hover table-sm custom-table">
