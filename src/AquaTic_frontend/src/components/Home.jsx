@@ -7,16 +7,20 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
   const [sensorData, setSensorData] = useState(null);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const fetchData = async () => {
+    setLoading(true);
     try {
       const response = await AquaTic_backend.fetchSensorData();
       const parsedResponse = JSON.parse(response); // Parsear la cadena JSON a un objeto
       setSensorData(parsedResponse);
+      setError(null);
     } catch (err) {
       setError(err.message);
     }
+    setLoading(false);
   };
 
   return (
@@ -33,6 +37,7 @@ const Home = () => {
               Ver Gráficas
             </button>
           </div>
+          {loading && <p className="text-center">Consultando información...</p>}
           {error && <p className="text-danger mt-3">{error}</p>}
           <ConsultarSensorData sensorData={sensorData} />
         </div>

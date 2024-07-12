@@ -1,3 +1,4 @@
+// src/components/Graficas.jsx
 import React, { useEffect, useState } from 'react';
 import { Line } from 'react-chartjs-2';
 import { AquaTic_backend } from 'declarations/AquaTic_backend';
@@ -10,6 +11,7 @@ import {
   Title,
   Tooltip,
   Legend,
+  Filler,
 } from 'chart.js';
 
 ChartJS.register(
@@ -19,11 +21,13 @@ ChartJS.register(
   LineElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 const Graficas = () => {
   const [sensorData, setSensorData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,6 +37,8 @@ const Graficas = () => {
         setSensorData(parsedResponse);
       } catch (err) {
         console.error(err.message);
+      } finally {
+        setLoading(false);
       }
     };
     fetchData();
@@ -47,28 +53,41 @@ const Graficas = () => {
           data: data.map(item => item[key]),
           borderColor: 'rgba(75,192,192,1)',
           backgroundColor: 'rgba(75,192,192,0.2)',
+          fill: true,
+          tension: 0.4, // Make the lines curved
         },
       ],
     };
   };
 
+  const chartOptions = {
+    responsive: true,
+    animation: {
+      duration: 2000, // Extend the animation duration
+    },
+  };
+
   return (
-    <div className="main-content">
-      <h1 className="text-center">Gráficas</h1>
-      <div className="charts-grid">
-        <div className="chart-item">
-          <h2 className="text-center">Temperatura</h2>
-          <Line data={processData(sensorData, 'oxigeno', 'Temperatura')} />
+    <div className="container mt-5">
+      <h1>Gráficas</h1>
+      {loading ? (
+        <p>Consultando información...</p>
+      ) : (
+        <div className="charts-grid">
+          <div className="chart-item">
+            <h2>Temperatura</h2>
+            <Line data={processData(sensorData, 'oxigeno', 'Temperatura')} options={chartOptions} />
+          </div>
+          <div className="chart-item">
+            <h2>PH</h2>
+            <Line data={processData(sensorData, 'ph')} options={chartOptions} />
+          </div>
+          <div className="chart-item">
+            <h2>TDS</h2>
+            <Line data={processData(sensorData, 'tds')} options={chartOptions} />
+          </div>
         </div>
-        <div className="chart-item">
-          <h2 className="text-center">PH</h2>
-          <Line data={processData(sensorData, 'ph')} />
-        </div>
-        <div className="chart-item">
-          <h2 className="text-center">TDS</h2>
-          <Line data={processData(sensorData, 'tds')} />
-        </div>
-      </div>
+      )}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+// src/AppRoutes.jsx
 import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useConnect } from '@connect2ic/react';

@@ -25,12 +25,9 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 100vh;
   text-align: center;
   background-color: #e0f2f1;
-}
-
-.landing-page {
-  height: 100vh;
 }
 
 .landing-page .logo, .main-content .logo {
@@ -115,12 +112,12 @@ button {
 
 .table-responsive {
   margin-top: 20px;
-  max-height: 400px;
-  overflow-y: auto;
+  max-height: 400px; /* Limit the table height */
+  overflow-y: auto; /* Enable vertical scrolling */
 }
 
 .table-container {
-  width: 90%;
+  width: 90%; /* Make the table container wider */
   background-color: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -184,7 +181,7 @@ button {
 
 .charts-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr 1fr;
   grid-gap: 20px;
   width: 100%;
 }
