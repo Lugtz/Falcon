@@ -39,12 +39,12 @@ const Graficas = () => {
     fetchData();
   }, []);
 
-  const processData = (data, key) => {
+  const processData = (data, key, label) => {
     return {
       labels: data.map(item => item.created_at),
       datasets: [
         {
-          label: key,
+          label: label || key,
           data: data.map(item => item[key]),
           borderColor: 'rgba(75,192,192,1)',
           backgroundColor: 'rgba(75,192,192,0.2)',
@@ -59,7 +59,7 @@ const Graficas = () => {
       <div className="row">
         <div className="col-md-6">
           <h2>Temperatura</h2>
-          <Line data={processData(sensorData, 'oxigeno')} />
+          <Line data={processData(sensorData, 'oxigeno', 'Temperatura')} />
         </div>
         <div className="col-md-6">
           <h2>PH</h2>
