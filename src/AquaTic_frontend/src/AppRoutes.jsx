@@ -1,4 +1,3 @@
-// src/AppRoutes.jsx
 import React, { useEffect } from 'react';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import { useConnect } from '@connect2ic/react';
@@ -7,7 +6,6 @@ import LandingPage from './components/LandingPage';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Graficas from './components/Graficas';
-import LogoutButton from './components/LogoutButton';
 
 function AppRoutes() {
   const { isConnected, principal } = useConnect();
@@ -37,7 +35,6 @@ function AppRoutes() {
           <Route path="/graficas" element={<Graficas />} />
         </Routes>
       </main>
-      {location.pathname !== '/' && <LogoutButton />}
     </>
   );
 }
