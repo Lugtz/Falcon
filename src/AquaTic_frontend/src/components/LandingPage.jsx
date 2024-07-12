@@ -12,7 +12,9 @@ const LandingPage = ({ onEnter }) => {
       <img src={logo} alt="NovaPal" className="logo" />
       <h1>Bienvenidos a NovaPal</h1>
       <p>Monitoriza y gestiona tus datos de calidad del agua eficientemente.</p>
-      <ConnectButton className="btn btn-primary mt-3" />
+      <div className="d-flex justify-content-center">
+        <ConnectButton className="btn btn-primary mt-3" />
+      </div>
       {isConnected && (
         <button className="btn btn-success mt-3" onClick={onEnter}>
           Entrar
