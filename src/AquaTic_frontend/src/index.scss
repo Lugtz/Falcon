@@ -1,6 +1,6 @@
 body {
   font-family: 'Merriweather', serif;
-  background-color: #e0f2f1;
+  background-color: #f4e1f2;
 }
 
 .App {
@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .card {
-  border: 1px solid #ced4da;
+  border: 1px solid #e2c4e8;
 }
 
 button {
@@ -26,8 +26,11 @@ button {
   align-items: center;
   justify-content: center;
   height: 100vh;
+  width: 100%;
   text-align: center;
-  background-color: #e0f2f1;
+  margin-left: 0px;
+  margin-right: 0px;
+  max-width: 100%;
 }
 
 .landing-page .logo, .main-content .logo {
@@ -39,13 +42,13 @@ button {
 .landing-page h1, .main-content h1 {
   font-size: 3rem;
   margin-bottom: 20px;
-  color: #004d40;
+  color: #944cb4;
 }
 
 .landing-page p, .main-content p {
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: #004d40;
+  color: #6a1b9a;
 }
 
 .landing-page .btn, .main-content .btn {
@@ -54,18 +57,18 @@ button {
 }
 
 .landing-page .btn-primary, .main-content .btn-primary {
-  background-color: #00796b;
+  background-color: #ba68c8;
   border: none;
 }
 
 .landing-page .btn-success, .main-content .btn-success {
   margin-top: 20px;
-  background-color: #004d40;
+  background-color: #ab47bc;
   border: none;
 }
 
 .navbar {
-  background-color: #004d40;
+  background-color: #6a1b9a;
 }
 
 .navbar .navbar-brand .logo {
@@ -90,7 +93,7 @@ button {
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
-  background-color: #004d40;
+  background-color: #8e24aa;
   color: #ffffff;
   border: none;
 }
@@ -132,16 +135,16 @@ button {
   overflow: hidden;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid #004d40;
+  border: 1px solid #ba68c8;
 }
 
 .custom-table th {
-  background-color: #00796b;
+  background-color: #ba68c8;
   color: #ffffff;
   text-align: center;
   padding: 12px 15px;
-  border-bottom: 2px solid #004d40;
-  border-right: 1px solid #004d40;
+  border-bottom: 2px solid #8e24aa;
+  border-right: 1px solid #8e24aa;
   &:first-child {
     border-top-left-radius: 10px;
   }
@@ -155,7 +158,7 @@ button {
   padding: 12px 15px;
   border-bottom: 1px solid #e0e0e0;
   border-right: 1px solid #e0e0e0;
-  background-color: #f0f4f8;
+  background-color: #f3e5f5;
 }
 
 .custom-table tbody tr:last-of-type td {
@@ -168,27 +171,27 @@ button {
 }
 
 .custom-table tbody tr:nth-of-type(odd) {
-  background-color: #e8f5e9;
+  background-color: #f8bbd0;
 }
 
 .custom-table tbody tr:nth-of-type(even) {
-  background-color: #f1f8e9;
+  background-color: #f3e5f5;
 }
 
 .custom-table tbody tr:hover {
-  background-color: #c8e6c9;
+  background-color: #e1bee7;
 }
 
 .charts-grid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-grid-gap: 20px;
-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  width: 100%;
 }
 
 .chart-item {
-background-color: #ffffff;
-border-radius: 10px;
-padding: 20px;
-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }

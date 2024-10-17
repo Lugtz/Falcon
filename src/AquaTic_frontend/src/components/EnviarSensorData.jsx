@@ -33,10 +33,10 @@ const EnviarSensorData = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Enviar Datos del Sensor</h2>
+      <h2>Generar Reporte</h2>
       <form onSubmit={sendData}>
         <div className="form-group">
-          <label htmlFor="tds">TDS</label>
+          <label htmlFor="ID">ID del reporte</label>
           <input
             type="number"
             className="form-control"
@@ -44,33 +44,33 @@ const EnviarSensorData = () => {
             name="tds"
             value={tds}
             onChange={handleInputChange}
-            placeholder="TDS"
+            placeholder="ID"
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="ph">PH</label>
+          <label htmlFor="Tit">Titulo</label>
           <input
-            type="number"
+            type="text"
             className="form-control"
             id="ph"
             name="ph"
             value={ph}
             onChange={handleInputChange}
-            placeholder="PH"
+            placeholder="Titulo"
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="temperatura">Temperatura</label> {/* Mostrar como Temperatura */}
+          <label htmlFor="Descripcion">Descripcion</label> {/* Mostrar como Temperatura */}
           <input
-            type="number"
+            type="text"
             className="form-control"
             id="temperatura"
             name="temperatura"
             value={temperatura}
             onChange={handleInputChange}
-            placeholder="Temperatura"
+            placeholder="Descripcion"
             required
           />
         </div>

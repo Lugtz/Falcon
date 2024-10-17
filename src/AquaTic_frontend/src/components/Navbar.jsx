@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import React from 'react';
-import logo from '/NovaPal.png';
+import logo from '/2NovaPal.png';
 import { useConnect } from '@connect2ic/react';
 
 const Navbar = () => {
@@ -11,7 +11,7 @@ const Navbar = () => {
       <div className="container-fluid">
         <a className="navbar-brand" href="#">
           <img src={logo} alt="NovaPal" width="50" height="50" className="d-inline-block align-text-top" />
-          NovaPal
+          FALCONS
         </a>
         <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span className="navbar-toggler-icon"></span>

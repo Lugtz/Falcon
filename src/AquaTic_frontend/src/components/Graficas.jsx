@@ -75,15 +75,15 @@ const Graficas = () => {
       ) : (
         <div className="charts-grid">
           <div className="chart-item">
-            <h2>Temperatura</h2>
+            <h2>Indice de Choques</h2>
             <Line data={processData(sensorData, 'oxigeno', 'Temperatura')} options={chartOptions} />
           </div>
           <div className="chart-item">
-            <h2>PH</h2>
+            <h2>Alertas Actuales</h2>
             <Line data={processData(sensorData, 'ph')} options={chartOptions} />
           </div>
           <div className="chart-item">
-            <h2>TDS</h2>
+            <h2>Indice de violencia</h2>
             <Line data={processData(sensorData, 'tds')} options={chartOptions} />
           </div>
         </div>
