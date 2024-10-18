@@ -40,10 +40,11 @@ module {
   public type IC = actor {
       http_request : HttpRequestArgs -> async HttpResponsePayload;
   };
+  public type PersonData = {
+    id: Nat;
+    edad: Nat;
+    sexo: Text;
+    emocion: Text;
+    };
 
-  public type SensorData = {
-    TDS: Float;
-    PH: Float;
-    Oxigeno: Float;
-  };
 }
