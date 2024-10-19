@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import ConsultarSensorData from './ConsultarSensorData';
-import EnviarSensorData from './EnviarSensorData';
+import ConsultarPersonData from './ConsultarPersonData'; // Importar el componente de personas
+import EnviarSensorData from './EnviarSensorData'; // Mantener el componente de envío de datos
 import { AquaTic_backend } from 'declarations/AquaTic_backend';
 import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
-  const [sensorData, setSensorData] = useState(null);
+  const [personData, setPersonData] = useState(null); // Cambiar sensorData a personData
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -14,9 +14,9 @@ const Home = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await AquaTic_backend.fetchSensorData();
+      const response = await AquaTic_backend.fetchSensorData(); // Llamada al backend
       const parsedResponse = JSON.parse(response); // Parsear la cadena JSON a un objeto
-      setSensorData(parsedResponse);
+      setPersonData(parsedResponse); // Guardar los datos en el estado
     } catch (err) {
       setError(err.message);
     } finally {
@@ -40,7 +40,7 @@ const Home = () => {
           </div>
           {loading && <div className="spinner-container">Consultando información...</div>}
           {error && <p className="text-danger mt-3">{error}</p>}
-          <ConsultarSensorData sensorData={sensorData} />
+          <ConsultarPersonData personData={personData} /> {/* Usar el componente para mostrar datos de personas */}
         </div>
         <div className="col-md-6">
           <EnviarSensorData />

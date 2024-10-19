@@ -45,16 +45,20 @@ actor {
   };
 
   public func processPersonData() : async Text {
-    // Llamar a la función para obtener los datos
     let rawData: Text = await fetchPersonData();
-
-    // Aquí puedes procesar los datos como JSON
+    
+    // Dado que los datos vienen como JSON, no hacemos parsing adicional en Motoko.
     Debug.print("Raw Data: " # rawData);
 
-    // Dado que es un JSON de array de objetos, simplemente lo retornamos
-    // Puedes hacer un parsing más detallado si es necesario
-    return "Processed data: " # rawData;
-  }
+    // Simplemente lo retornamos como texto JSON.
+    return rawData;
+  };
 
-  // Puedes añadir aquí más funciones según sea necesario.
+  public func fetchSensorData() : async Text {
+      // Reutiliza la función para obtener los datos de la API
+      let personData: Text = await fetchPersonData();
+      
+      // Aquí puedes realizar cualquier transformación adicional si es necesario
+      return personData;
+  }
 }
